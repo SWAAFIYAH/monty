@@ -12,7 +12,7 @@ stack_t *stack = NULL;
 int main(int argc, char *argv[])
 {
 	FILE *fd;
-	char buf[20], *word;
+	char buf[100], *word;
 	int i = 0;
 	void (*opcode)(stack_t **, unsigned int);
 
@@ -24,8 +24,9 @@ int main(int argc, char *argv[])
 	while (fgets(buf, sizeof(buf), fd) != NULL)
 	{
 		i++;
-
 		word = strtok(buf, "\n\t ");
+		if (word == NULL)
+			continue;
 		opcode = get_opcode(word);
 		if (opcode == NULL)
 		{
