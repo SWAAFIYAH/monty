@@ -39,6 +39,7 @@ typedef struct instruction_s
 
 extern stack_t *stack;
 
+void _free(stack_t **stack);
 void error1(char *str);
 void error2(int i);
 void error3(char *str1, char *str2);

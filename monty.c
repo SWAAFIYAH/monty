@@ -21,22 +21,31 @@ int main(int argc, char *argv[])
 	fd = fopen(argv[1], "r");
 	if (fd == NULL)
 		error3("Error: Can't open file", argv[1]);
-	while (!(feof(fd)))
+	while (fgets(buf, sizeof(buf), fd) != NULL)
 	{
 		i++;
-		fgets(buf, sizeof(buf), fd);
 
 		word = strtok(buf, "\n\t ");
 		opcode = get_opcode(word);
 		if (opcode == NULL)
+		{
+			_free(&stack);
+			fclose(fd);
 			error4(i, word);
+		}
 		if (opcode == push)
 		{
 			word = strtok(NULL, "\n\t ");
 			if (word == NULL || is_int(word) == -1)
+			{
+				_free(&stack);
+				fclose(fd);
 				error2(i);
+			}		
 		}
 		opcode(&stack, atoi(word));
 	}
+	_free(&stack);
+	fclose(fd);
 	return (0);
 }
