@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
 				_free(&stack);
 				fclose(fd);
 				error2(i);
-			}		
+			}
 		}
 		opcode(&stack, atoi(word));
 	}
