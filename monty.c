@@ -12,7 +12,7 @@ stack_t *stack = NULL;
 int main(int argc, char *argv[])
 {
 	FILE *fd;
-	char buf[100], *word;
+	char buf[20000], *word;
 	int i = 0;
 	void (*opcode)(stack_t **, unsigned int);
 
