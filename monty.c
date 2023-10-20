@@ -28,13 +28,13 @@ int main(int argc, char *argv[])
 		word = strtok(buf, "\n\t ");
 		if (word == NULL)
 			continue;
-		if (stack == NULL && (strcmp(word, check_op(word)) == 0))
+		if ((stack == NULL && (strcmp(word, check_op(word)) == 0))
+		|| ((strcmp(word, "swap") == 0) && check_stack(&stack) < 2))
 			error2(i, word);
 		opcode = get_opcode(word);
 		if (opcode == NULL)
 		{
 			_free(&stack);
-			fclose(fd);
 			error4(i, word);
 		}
 		if (opcode == push)
