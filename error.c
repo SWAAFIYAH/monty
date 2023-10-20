@@ -50,15 +50,35 @@ void error1(char *str)
 /**
  * error2 - ..
  * @i: ..
+ * @str: ..
  * Return: ..
  */
 
-void error2(int i)
+void error2(int i, char *str)
 {
-	write(2, "L", 1);
-	_atoi(i);
-	write(2, ": usage: push integer\n", 22);
-	exit(EXIT_FAILURE);
+	char *opcode[] = {"push", "pint", "pop", "swap", "add", NULL};
+	int j = 0;
+
+	while (opcode[j] != NULL)
+	{
+		if (strcmp(opcode[j], str) == 0)
+		{
+			write(2, "L", 1);
+			_atoi(i);
+			if (strcmp(str, "push") == 0)
+				write(2, ": usage: push integer\n", 22);
+			else if (strcmp(str, "pint") == 0)
+				write(2, ": can't pint, stack empty\n", 26);
+			else if (strcmp(str, "pop") == 0)
+				write(2, ": can't pop an empty stack\n", 27);
+			else if (strcmp(str, "swap") == 0)
+				write(2, ": can't swap, stack too short\n", 30);
+			else if (strcmp(str, "add") == 0)
+				write(2, ": can't add, stack too short\n", 29);
+			exit(EXIT_FAILURE);
+		}
+	j++;
+	}
 }
 
 /**

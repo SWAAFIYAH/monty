@@ -1,4 +1,5 @@
 #include "monty.h"
+#include <stdio.h>
 
 stack_t *stack = NULL;
 
@@ -12,7 +13,7 @@ stack_t *stack = NULL;
 int main(int argc, char *argv[])
 {
 	FILE *fd;
-	char buf[20000], *word;
+	char buf[100], *word = NULL;
 	int i = 0;
 	void (*opcode)(stack_t **, unsigned int);
 
@@ -27,6 +28,8 @@ int main(int argc, char *argv[])
 		word = strtok(buf, "\n\t ");
 		if (word == NULL)
 			continue;
+		if (stack == NULL && (strcmp(word, check_op(word)) == 0))
+			error2(i, word);
 		opcode = get_opcode(word);
 		if (opcode == NULL)
 		{
@@ -41,7 +44,7 @@ int main(int argc, char *argv[])
 			{
 				_free(&stack);
 				fclose(fd);
-				error2(i);
+				error2(i, "push");
 			}
 		}
 		opcode(&stack, atoi(word));

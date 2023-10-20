@@ -41,11 +41,13 @@ extern stack_t *stack;
 
 void _free(stack_t **stack);
 void error1(char *str);
-void error2(int i);
+void error2(int i, char *str);
 void error3(char *str1, char *str2);
 void error4(int i, char *str);
 void (*get_opcode(char *str))(stack_t **stack, unsigned int line_number);
 int is_int(char *str);
+void pint(stack_t **stack, unsigned int line_number);
+char *check_op(char *str);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 
