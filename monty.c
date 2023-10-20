@@ -29,7 +29,8 @@ int main(int argc, char *argv[])
 		if (word == NULL)
 			continue;
 		if ((stack == NULL && (strcmp(word, check_op(word)) == 0))
-		|| ((strcmp(word, "swap") == 0) && check_stack(&stack) < 2))
+		|| (((strcmp(word, "swap") == 0) || (strcmp(word, "add") == 0))
+		&& check_stack(&stack) < 2))
 			error2(i, word);
 		opcode = get_opcode(word);
 		if (opcode == NULL)
@@ -43,7 +44,6 @@ int main(int argc, char *argv[])
 			if (word == NULL || is_int(word) == -1)
 			{
 				_free(&stack);
-				fclose(fd);
 				error2(i, "push");
 			}
 		}
