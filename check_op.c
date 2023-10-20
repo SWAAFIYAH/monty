@@ -8,7 +8,7 @@
 
 char *check_op(char *str)
 {
-	char *opcode[] = {"pint", "add", "swap", NULL};
+	char *opcode[] = {"pint", "add", "swap", "pop", NULL};
 	int i = 0;
 
 	while (opcode[i] != NULL)
