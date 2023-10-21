@@ -57,6 +57,7 @@ void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 void mul(stack_t **stack, unsigned int line_number);
+void mod(stack_t **stack, unsigned int line_number);
 int check_stack(stack_t **stack);
 void check_first_element(stack_t **stack, char *str, int line);
 int _atoi(int i);

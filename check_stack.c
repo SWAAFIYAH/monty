@@ -32,11 +32,24 @@ int check_stack(stack_t **stack)
 
 void check_first_element(stack_t **stack, char *str, int line)
 {
-	if  (check_stack(stack) >= 2 && strcmp(str, "div") == 0 && (*stack)->n == 0)
+	char *opcode[] = {"div", "mod", NULL};
+	int i = 0;
+
+	if  (check_stack(stack) >= 2 && (*stack)->n == 0)
 	{
-		write(2, "L", 1);
-		_atoi(line);
-		write(2, ": division by zero\n", 19);
-		exit(EXIT_FAILURE);
+		while (opcode[i] != NULL)
+		{
+			if  (strcmp(str, opcode[i]) == 0)
+			{
+				write(2, "L", 1);
+				_atoi(line);
+				if (strcmp(str, "div") == 0)
+					write(2, ": division by zero\n", 19);
+				else if (strcmp(str, "mod") == 0)
+					write(2, ": division by zero\n", 19);
+				exit(EXIT_FAILURE);
+			}
+		i++;
+		}
 	}
 }
