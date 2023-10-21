@@ -9,8 +9,8 @@
 
 void check_op(char *str, int line)
 {
-	char *opcode[] = {"pint", "pop", "add", "swap", "sub", NULL};
-	char *index_2[] = {"add", "swap", "sub", NULL};
+	char *opcode[] = {"pint", "pop", "add", "swap", "sub", "div", NULL};
+	char *index_2[] = {"add", "swap", "sub", "div", NULL};
 	int i = 0;
 
 	if (stack == NULL)
@@ -31,4 +31,5 @@ void check_op(char *str, int line)
 			i++;
 		}
 	}
+	check_first_element(&stack, str, line);
 }
