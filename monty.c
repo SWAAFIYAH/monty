@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 	{
 		i++;
 		word = strtok(buf, "\n\t ");
-		if (word == NULL)
+		if (word == NULL || word[0] == '#')
 			continue;
 		check_op(word, i);
 		opcode = get_opcode(word);
