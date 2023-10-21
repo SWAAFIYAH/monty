@@ -28,10 +28,7 @@ int main(int argc, char *argv[])
 		word = strtok(buf, "\n\t ");
 		if (word == NULL)
 			continue;
-		if ((stack == NULL && (strcmp(word, check_op(word)) == 0))
-		|| (((strcmp(word, "swap") == 0) || (strcmp(word, "add") == 0))
-		&& check_stack(&stack) < 2))
-			error2(i, word);
+		check_op(word, i);
 		opcode = get_opcode(word);
 		if (opcode == NULL)
 		{

@@ -47,7 +47,7 @@ void error4(int i, char *str);
 void (*get_opcode(char *str))(stack_t **stack, unsigned int line_number);
 int is_int(char *str);
 void pint(stack_t **stack, unsigned int line_number);
-char *check_op(char *str);
+void check_op(char *str, int line);
 void push(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
