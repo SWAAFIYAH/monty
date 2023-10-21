@@ -9,8 +9,8 @@
 
 void check_op(char *str, int line)
 {
-	char *opcode[] = {"pint", "pop", "add", "swap", NULL};
-	char *index_2[] = {"add", "swap", NULL};
+	char *opcode[] = {"pint", "pop", "add", "swap", "sub", NULL};
+	char *index_2[] = {"add", "swap", "sub", NULL};
 	int i = 0;
 
 	if (stack == NULL)
