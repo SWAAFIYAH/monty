@@ -57,7 +57,7 @@ void error1(char *str)
 void error2(int i, char *str)
 {
 	char *opcode[] = {"push", "pint", "pop", "swap",
-		"add", "sub", "div", "mod", "mul", NULL};
+		"add", "sub", "div", "mod", "mul", "pchar", NULL};
 	int j = 0;
 
 	while (opcode[j] != NULL)
@@ -84,6 +84,8 @@ void error2(int i, char *str)
 				write(2, ": can't mul, stack too short\n", 29);
 			else if (strcmp(str, "mod") == 0)
 				write(2, ": can't mod, stack too short\n", 29);
+			else if (strcmp(str, "pchar") == 0)
+				write(2, ": can't pchar, stack empty\n", 27);
 			exit(EXIT_FAILURE);
 		}
 	j++;

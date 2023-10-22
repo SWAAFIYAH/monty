@@ -35,13 +35,16 @@ int main(int argc, char *argv[])
 			_free(&stack);
 			error4(i, word);
 		}
-		if (opcode == push)
+		if (opcode == push || opcode == pchar)
 		{
 			word = strtok(NULL, "\n\t ");
-			if (word == NULL || is_int(word) == -1)
+			if (word == NULL || is_int(word) == -1
+			|| (opcode == pchar && is_char(atoi(word)) == -1))
 			{
 				_free(&stack);
-				error2(i, "push");
+				if (opcode == push)
+					error2(i, "push");
+				p_error(i);
 			}
 		}
 		opcode(&stack, atoi(word));

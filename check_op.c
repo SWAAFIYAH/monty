@@ -10,7 +10,7 @@
 void check_op(char *str, int line)
 {
 	char *opcode[] = {"pint", "pop", "add", "swap",
-		"sub", "mod", "div", "mul", NULL};
+		"sub", "mod", "div", "mul", "pchar", NULL};
 	char *index_2[] = {"add", "swap", "sub",
 		"div", "mod", "mul", NULL};
 	int i = 0;

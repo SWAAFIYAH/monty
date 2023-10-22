@@ -1,1 +1,2 @@
-#
+push t
+pchar
