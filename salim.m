@@ -1,2 +1,2 @@
-push t
+push 655
 pchar
