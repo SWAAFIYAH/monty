@@ -21,6 +21,7 @@ void (*get_opcode(char *str))(stack_t **, unsigned int)
 		{"mul", mul},
 		{"mod", mod},
 		{"pchar", pchar},
+		{"rotl", rotl},
 		{NULL, NULL}
 	};
 	int i = 0;
